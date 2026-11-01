@@ -1,0 +1,809 @@
+@font-face {
+  font-family: "Mero Nepali";
+  src: url("./fonts/NotoSansDevanagariUI-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mero Nepali";
+  src: url("./fonts/NotoSansDevanagariUI-SemiBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+}
+
+:root {
+  font-family:
+    "Mero Nepali",
+    "Segoe UI",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+
+  font-synthesis: none;
+  color-scheme: light;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  --color-primary: #1e293b;
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-holiday: #dc2626;
+  --color-festival: #2563eb;
+  --color-card-bg: #ffffff;
+  --color-body-bg: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 1px;
+}
+
+/* ==========================================================================
+   1. DESKTOP WIDGET (FLOATING GLASS PILL)
+   ========================================================================== */
+
+.widget-page {
+  overflow: hidden;
+  background: transparent;
+  user-select: none;
+  padding: 3px;
+}
+
+.widget {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  box-shadow:
+    0 8px 24px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 0 0 1px rgba(15, 23, 42, 0.05);
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+/* THEMES */
+.widget.theme-glass {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+}
+
+.widget.theme-dark {
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.widget.theme-dark .nepali-date {
+  color: #f8fafc;
+}
+
+.widget.theme-dark .english-date {
+  color: #94a3b8;
+}
+
+.widget.theme-dark .widget-tithi-pill {
+  background: rgba(255, 255, 255, 0.12);
+  color: #cbd5e1;
+}
+
+.widget.theme-dark .widget-tithi-pill.is-holiday {
+  background: rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+}
+
+.widget.theme-dark .widget-tithi-pill.is-festival {
+  background: rgba(59, 130, 246, 0.25);
+  color: #93c5fd;
+}
+
+.widget.theme-dark .widget-action-btn {
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.widget.theme-dark .widget-action-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.widget.theme-dark .widget-resize-grip {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.widget.theme-dark .widget-resize-grip:hover {
+  color: #60a5fa;
+}
+
+.widget.theme-flat {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+
+.widget-surface {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 6px 10px;
+  gap: 6px;
+  cursor: grab;
+  box-sizing: border-box;
+}
+
+.widget-surface:active {
+  cursor: grabbing;
+}
+
+.date-area {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: grab;
+}
+
+.date-area:active {
+  cursor: grabbing;
+}
+
+.widget-date-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  width: 100%;
+  min-width: 0;
+}
+
+.widget-primary-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.nepali-date {
+  font-family: "Mero Nepali", sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.1px;
+}
+
+.widget-subrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.english-date {
+  font-family: "Segoe UI", -apple-system, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.widget-tithi-pill {
+  font-family: "Mero Nepali", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: rgba(148, 163, 184, 0.15);
+  color: #475569;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100px;
+}
+
+.widget-tithi-pill.is-holiday {
+  background: rgba(220, 38, 38, 0.1);
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.widget-tithi-pill.is-festival {
+  background: rgba(37, 99, 235, 0.1);
+  color: #1d4ed8;
+}
+
+.widget-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.widget-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 50%;
+  color: #64748b;
+  background: rgba(241, 245, 249, 0.7);
+  cursor: pointer;
+  transition: all 120ms ease;
+}
+
+.widget-action-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+  transform: scale(1.06);
+}
+
+.widget-action-btn:active {
+  transform: scale(0.94);
+}
+
+.widget-resize-grip {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  cursor: nwse-resize;
+  color: rgba(100, 116, 139, 0.4);
+  transition: color 150ms ease;
+  z-index: 10;
+  padding: 2px;
+  user-select: none;
+}
+
+.widget-resize-grip:hover {
+  color: #2563eb;
+}
+
+/* ==========================================================================
+   2. FULL MONTHLY CALENDAR WINDOW
+   ========================================================================== */
+
+.calendar-page {
+  background: var(--color-body-bg);
+  color: var(--color-primary);
+  overflow-y: auto;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+.calendar-shell {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-card {
+  width: 100%;
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 22px 24px;
+  border-radius: 20px;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Header */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.calendar-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.calendar-eyebrow {
+  color: #94a3b8;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  font-size: 10px;
+}
+
+.ns-pill {
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 5px;
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.title-selector-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.calendar-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+  color: #0f172a;
+  letter-spacing: -0.3px;
+}
+
+.quick-jump-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.selector-dropdown {
+  font-family: "Mero Nepali", "Segoe UI", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 3px 8px;
+  cursor: pointer;
+  transition: all 120ms ease;
+  outline: none;
+}
+
+.selector-dropdown:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.selector-dropdown:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.calendar-range {
+  color: #64748b;
+  font-size: 12.5px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Navigation Buttons */
+.calendar-navigation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f5f9;
+  padding: 3px;
+  border-radius: 10px;
+}
+
+.calendar-navigation button {
+  border: 0;
+  background: transparent;
+  color: #334155;
+  height: 30px;
+  min-width: 30px;
+  padding: 0 8px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 120ms ease;
+}
+
+.nav-today-btn {
+  font-family: "Mero Nepali", sans-serif;
+  font-weight: 700;
+  font-size: 12.5px;
+  padding: 0 12px !important;
+}
+
+.calendar-navigation button:hover:not(:disabled) {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+}
+
+.calendar-navigation button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* 7-Column Grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.weekday {
+  text-align: center;
+  padding: 8px 0;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.weekday.saturday {
+  color: var(--color-holiday);
+}
+
+.calendar-empty {
+  background: transparent;
+}
+
+.calendar-day {
+  min-height: 58px;
+  padding: 6px 7px;
+  border-radius: 11px;
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 120ms ease;
+  position: relative;
+}
+
+.calendar-day:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+
+.calendar-day.selected {
+  outline: 2px solid #2563eb;
+  outline-offset: -1px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+.calendar-day.today {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.calendar-day.today .bs-number {
+  color: #1d4ed8;
+  font-weight: 800;
+}
+
+.cell-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.bs-number {
+  font-size: 17px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.1;
+}
+
+.calendar-day.holiday .bs-number,
+.calendar-day.saturday .bs-number {
+  color: var(--color-holiday);
+}
+
+.ad-number {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: #94a3b8;
+  line-height: 1;
+}
+
+.cell-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.tithi-text {
+  font-size: 9px;
+  color: #64748b;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 48px;
+}
+
+.event-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.event-dot.holiday-dot {
+  background: var(--color-holiday);
+}
+
+.event-dot.festival-dot {
+  background: var(--color-festival);
+}
+
+/* ==========================================================================
+   3. DAY INSPECTOR PANEL
+   ========================================================================== */
+
+.day-inspector {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inspector-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.inspector-date-block {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.inspector-bs-date {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.inspector-ad-date {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.inspector-tithi-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.inspector-event-card {
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  transition: all 120ms ease;
+}
+
+.inspector-event-card.is-holiday {
+  background: #fef2f2;
+  border: 1px solid #fecdd3;
+  color: #991b1b;
+}
+
+.inspector-event-card.is-festival {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+}
+
+.inspector-event-card.is-saturday {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #9a3412;
+}
+
+.inspector-event-card.is-normal {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+}
+
+/* ==========================================================================
+   4. MONTHLY HIGHLIGHTS CHIPS STRIP
+   ========================================================================== */
+
+.monthly-highlights-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.highlights-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.highlights-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #475569;
+}
+
+.highlights-count-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 10px;
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.highlights-chips-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-height: 100px;
+  overflow-y: auto;
+  padding: 2px 0;
+}
+
+.holiday-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  font-size: 11.5px;
+  cursor: pointer;
+  transition: all 120ms ease;
+}
+
+.holiday-chip.is-gov {
+  background: #fef2f2;
+  border-color: #fee2e2;
+  color: #991b1b;
+}
+
+.holiday-chip.is-gov:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  transform: translateY(-1px);
+}
+
+.holiday-chip.is-event {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #334155;
+}
+
+.holiday-chip.is-event:hover {
+  background: #e2e8f0;
+  transform: translateY(-1px);
+}
+
+.chip-date {
+  font-weight: 700;
+}
+
+.highlights-empty {
+  font-size: 12px;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   5. FOOTER
+   ========================================================================== */
+
+.calendar-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-border);
+  gap: 12px;
+}
+
+.today-status-text {
+  font-size: 12px;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.about-link-btn {
+  border: 0;
+  background: transparent;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 120ms ease;
+}
+
+.about-link-btn:hover {
+  background: #eff6ff;
+}
+
+.calendar-footer-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.footer-dot {
+  font-size: 11px;
+  color: #cbd5e1;
+}

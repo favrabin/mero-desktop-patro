@@ -1,0 +1,32 @@
+[package]
+name = "mero-desktop-patro"
+version = "1.0.0"
+description = "A lightweight Nepali desktop calendar"
+authors = ["Rabin Thapa"]
+edition = "2021"
+
+[lib]
+name = "mero_desktop_patro_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon", "image-png", "image-ico"] }
+tauri-plugin-opener = "2"
+tauri-plugin-autostart = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Personal documentation and local assets
+/Mero Desktop Patro Calendar Icon.png
+/Mero_Desktop_Patro_Documentation.pdf
+/README.md
+/TECHNICAL_HANDBOOK.md
+/documentation.html
+
+# Private folders and local files
+/Other files/
+/TestExeFile/
+/desktop.ini

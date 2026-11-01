@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mero Desktop Patro - Calendar</title>
+  <link rel="icon" type="image/png" href="assets/app-logo.png">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="patro-date.js" defer></script>
+  <script src="calendar.js" defer></script>
+</head>
+<body class="calendar-page">
+
+  <main class="calendar-shell">
+    <section class="calendar-card">
+
+      <!-- HEADER & NAVIGATION -->
+      <header class="calendar-header">
+        <div class="header-left">
+          <div class="calendar-eyebrow-row">
+            <span class="calendar-eyebrow">MERO DESKTOP PATRO</span>
+            <span id="calendar-ns-pill" class="ns-pill">ने.सं. ११४६</span>
+          </div>
+
+          <div class="title-selector-row">
+            <h1 id="month-title" class="calendar-title">नेपाली पात्रो</h1>
+
+            <div class="quick-jump-controls">
+              <select id="select-year" class="selector-dropdown" title="वर्ष छान्नुहोस्" aria-label="Select Year"></select>
+              <select id="select-month" class="selector-dropdown" title="महिना छान्नुहोस्" aria-label="Select Month"></select>
+            </div>
+          </div>
+
+          <div id="month-range" class="calendar-range">--</div>
+        </div>
+
+        <div class="calendar-navigation">
+          <button id="prev-month" type="button" class="nav-icon-btn" title="अघिल्लो महिना (←)" aria-label="Previous Month">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button id="go-today" type="button" class="nav-today-btn" title="आजमा जानुहोस् (T)">आज</button>
+          <button id="next-month" type="button" class="nav-icon-btn" title="पछिल्लो महिना (→)" aria-label="Next Month">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <button id="open-settings-btn" type="button" class="nav-icon-btn" title="Settings (सेटिङ)" aria-label="Open Settings">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- 7-COLUMN MONTHLY GRID -->
+      <div
+        id="calendar-grid"
+        class="calendar-grid"
+        role="grid"
+        aria-label="Nepali monthly calendar"
+      ></div>
+
+      <!-- SELECTED DAY INSPECTOR PANEL -->
+      <section id="day-inspector" class="day-inspector" aria-label="Selected Day Information">
+        <div class="inspector-top-row">
+          <div class="inspector-date-block">
+            <span id="inspector-bs-date" class="inspector-bs-date">--</span>
+            <span id="inspector-ad-date" class="inspector-ad-date">--</span>
+          </div>
+          <div class="inspector-meta-block">
+            <span id="inspector-tithi" class="inspector-tithi-pill">--</span>
+          </div>
+        </div>
+
+        <div id="inspector-event-card" class="inspector-event-card">
+          <span id="inspector-event-text" class="inspector-event-text">साधारण दिन</span>
+        </div>
+      </section>
+
+      <!-- MONTHLY HOLIDAYS & FESTIVALS STRIP -->
+      <section class="monthly-highlights-section" aria-label="Monthly Highlights">
+        <div class="highlights-header">
+          <span class="highlights-title">यस महिनाका पर्व तथा बिदाहरू</span>
+          <span id="highlights-count" class="highlights-count-badge">0</span>
+        </div>
+        <div id="monthly-holiday-chips" class="highlights-chips-list"></div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="calendar-footer">
+        <div id="today-text" class="today-status-text"></div>
+        <div class="calendar-footer-links">
+          <button id="open-settings-footer" class="about-link-btn" type="button">
+            Settings
+          </button>
+          <span style="color: #cbd5e1; margin: 0 4px;">•</span>
+          <button id="open-about" class="about-link-btn" type="button">
+            About & Legal
+          </button>
+        </div>
+      </footer>
+
+    </section>
+  </main>
+</body>
+</html>

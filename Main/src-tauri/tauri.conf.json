@@ -1,0 +1,91 @@
+
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Mero Desktop Patro",
+  "version": "1.0.0",
+  "identifier": "np.com.rabinthapa9.mero-desktop-patro",
+  "build": {
+    "beforeBuildCommand": "npx esbuild scripts/patro-entry.js --bundle --platform=browser --format=iife --target=es2020 --outfile=src/patro-date.js",
+    "frontendDist": "../src"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "label": "main",
+        "title": "Mero Desktop Patro",
+        "width": 254,
+        "height": 70,
+        "minWidth": 200,
+        "minHeight": 54,
+        "maxWidth": 450,
+        "maxHeight": 140,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "resizable": true,
+        "skipTaskbar": true,
+        "shadow": false,
+        "center": false,
+        "visible": true
+      },
+      {
+        "label": "calendar",
+        "title": "Mero Desktop Patro - Calendar",
+        "url": "calendar.html",
+        "width": 680,
+        "height": 740,
+        "minWidth": 560,
+        "minHeight": 620,
+        "center": true,
+        "decorations": true,
+        "resizable": true,
+        "visible": false
+      },
+      {
+        "label": "settings",
+        "title": "Mero Desktop Patro - Settings & Information",
+        "url": "settings.html",
+        "width": 880,
+        "height": 640,
+        "minWidth": 680,
+        "minHeight": 500,
+        "center": true,
+        "decorations": true,
+        "resizable": true,
+        "visible": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; frame-src https://portfolio.rabinthapa9.com.np;"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "nsis"
+    ],
+    "publisher": "Rabin Thapa",
+    "shortDescription": "A lightweight Nepali desktop calendar",
+    "longDescription": "Mero Desktop Patro displays Bikram Sambat and Gregorian dates through a compact Windows desktop widget and monthly calendar.",
+    "category": "Utility",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper"
+      },
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": [
+          "English"
+        ],
+        "displayLanguageSelector": false
+      }
+    }
+  }
+}

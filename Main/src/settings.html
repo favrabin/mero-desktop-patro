@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mero Desktop Patro - Settings & Information</title>
+  <link rel="icon" type="image/png" href="assets/app-logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="settings.css">
+  <script src="settings.js" defer></script>
+</head>
+<body class="unified-settings-body">
+
+  <div class="unified-shell">
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="settings-sidebar" aria-label="Settings Navigation">
+
+      <div class="sidebar-brand">
+        <img class="brand-badge-img" src="assets/app-logo.png" alt="Mero Desktop Patro Logo">
+        <div class="brand-text">
+          <strong class="brand-title">Mero Desktop Patro</strong>
+          <span class="brand-version">Version 1.0.0 • Official Release</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Categories">
+        <!-- PREFERENCES -->
+        <div class="nav-section-label">PREFERENCES</div>
+        <button class="nav-item active" data-page="system" type="button">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>System & Startup</span>
+        </button>
+        <button class="nav-item" data-page="widget" type="button">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+          <span>Widget & Sizing</span>
+        </button>
+        <button class="nav-item" data-page="calendar" type="button">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span>Calendar & Holidays</span>
+        </button>
+
+        <!-- INFORMATION -->
+        <div class="nav-section-label">INFORMATION</div>
+        <button class="nav-item" data-page="about" type="button">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          <span>About Patro</span>
+        </button>
+        <button class="nav-item" data-page="developer" type="button">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <span>Meet Developer</span>
+        </button>
+
+        <!-- LEGAL -->
+        <div class="nav-section-label">LEGAL & POLICIES</div>
+        <button class="nav-item" data-page="privacy" type="button">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span>Privacy Policy</span>
+        </button>
+        <button class="nav-item" data-page="terms" type="button">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span>Terms of Use</span>
+        </button>
+        <button class="nav-item" data-page="disclaimer" type="button">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          <span>Disclaimer</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <span>© 2026 Rabin Thapa</span>
+      </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT VIEWPORT -->
+    <main class="settings-main" id="settings-main">
+
+      <!-- ===================================================================
+           1. SYSTEM & STARTUP
+           =================================================================== -->
+      <section id="pane-system" class="content-pane active">
+        <header class="pane-header">
+          <h1 class="pane-title">System & Startup</h1>
+          <p class="pane-subtitle">Configure Windows background operation and desktop window behavior.</p>
+        </header>
+
+        <div class="card">
+          <div class="card-item">
+            <div class="card-item-text">
+              <label for="setting-autostart" class="item-title">Start with Windows</label>
+              <span class="item-desc">Launch Mero Desktop Patro automatically when your computer starts up. Operates quietly in the system tray.</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="setting-autostart">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="card-divider"></div>
+
+          <div class="card-item">
+            <div class="card-item-text">
+              <label for="setting-always-on-top" class="item-title">Keep Widget on Top</label>
+              <span class="item-desc">Float the date widget above all other applications and open windows for continuous glanceability.</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="setting-always-on-top">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="card-divider"></div>
+
+          <div class="card-item">
+            <div class="card-item-text">
+              <label for="setting-auto-snap" class="item-title">Auto-Snap to Screen Corner</label>
+              <span class="item-desc">Automatically dock the widget neatly to the closest screen corner when dragging is released.</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="setting-auto-snap">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header-simple">
+            <h2 class="subcard-title">Widget Positioning</h2>
+            <p class="item-desc">Realignment tools if the floating widget is ever moved off-screen.</p>
+          </div>
+
+          <div class="card-item">
+            <div class="card-item-text">
+              <span class="item-title">Reset to Bottom-Right Corner</span>
+              <span class="item-desc">Repositions the widget to the bottom-right corner of your display, directly above the Windows 11 taskbar clock.</span>
+            </div>
+            <button id="btn-reset-pos" class="btn-subtle" type="button">Reset to Bottom-Right</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           2. WIDGET & SIZING
+           =================================================================== -->
+      <section id="pane-widget" class="content-pane" hidden>
+        <header class="pane-header">
+          <h1 class="pane-title">Widget & Sizing</h1>
+          <p class="pane-subtitle">Choose your preferred widget dimensions, theme surface, and displayed data.</p>
+        </header>
+
+        <div class="card">
+          <div class="card-header-simple">
+            <h2 class="subcard-title">Size Presets</h2>
+            <p class="item-desc">Pick an optimized scale or resize freely by dragging on desktop.</p>
+          </div>
+
+          <div class="presets-row">
+            <button class="preset-box" data-preset="compact" type="button">
+              <div class="preset-top">
+                <span class="preset-label">Compact</span>
+                <span class="preset-tag">216 × 56</span>
+              </div>
+              <p class="preset-note">Ultra-minimal single-line layout for smaller screens.</p>
+            </button>
+
+            <button class="preset-box active" data-preset="standard" type="button">
+              <div class="preset-top">
+                <span class="preset-label">Standard</span>
+                <span class="preset-tag">254 × 70</span>
+              </div>
+              <p class="preset-note">Balanced default: Nepali & English date with live Tithi badge.</p>
+            </button>
+
+            <button class="preset-box" data-preset="expanded" type="button">
+              <div class="preset-top">
+                <span class="preset-label">Expanded</span>
+                <span class="preset-tag">300 × 86</span>
+              </div>
+              <p class="preset-note">Spacious typography suited for 1440p and 4K high-DPI monitors.</p>
+            </button>
+          </div>
+
+          <div class="card-divider" style="margin-top: 16px;"></div>
+
+          <div class="card-item">
+            <div class="card-item-text">
+              <label for="setting-resize-grip" class="item-title">Desktop Drag-to-Resize Handle</label>
+              <span class="item-desc">Display an interactive corner handle at the bottom-right of the widget to resize freely by dragging.</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="setting-resize-grip">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header-simple">
+            <h2 class="subcard-title">Surface & Visual Theme</h2>
+            <p class="item-desc">Choose a design aesthetic that pairs with your desktop background.</p>
+          </div>
+
+          <div class="themes-row">
+            <button class="theme-box active" data-theme="glass" type="button">
+              <div class="theme-sample sample-glass"></div>
+              <span class="theme-title">Frosted Glass</span>
+            </button>
+            <button class="theme-box" data-theme="dark" type="button">
+              <div class="theme-sample sample-dark"></div>
+              <span class="theme-title">Dark Slate</span>
+            </button>
+            <button class="theme-box" data-theme="flat" type="button">
+              <div class="theme-sample sample-flat"></div>
+              <span class="theme-title">Solid Clean</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header-simple">
+            <h2 class="subcard-title">Displayed Indicators</h2>
+            <p class="item-desc">Choose which date elements appear on the floating widget.</p>
+          </div>
+
+          <div class="card-item">
+            <div class="card-item-text">
+              <label for="setting-show-tithi" class="item-title">Daily Tithi & Holiday Pill</label>
+              <span class="item-desc">Displays today's public holiday, festive observance, or lunar Tithi.</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="setting-show-tithi">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="card-divider"></div>
+
+          <div class="card-item">
+            <div class="card-item-text">
+              <label for="setting-show-english" class="item-title">Gregorian (English) Date</label>
+              <span class="item-desc">Displays the corresponding English AD calendar date.</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="setting-show-english">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="card-divider"></div>
+
+          <div class="card-item">
+            <div class="card-item-text">
+              <label for="setting-show-weekday" class="item-title">Nepali Weekday Name</label>
+              <span class="item-desc">Displays the day of the week (आइतबार, सोमबार...).</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="setting-show-weekday">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           3. CALENDAR & HOLIDAYS
+           =================================================================== -->
+      <section id="pane-calendar" class="content-pane" hidden>
+        <header class="pane-header">
+          <h1 class="pane-title">Calendar & Holidays</h1>
+          <p class="pane-subtitle">Customize the monthly calendar grid and cultural festival highlights.</p>
+        </header>
+
+        <div class="card">
+          <div class="card-item">
+            <div class="card-item-text">
+              <label for="setting-highlight-holidays" class="item-title">Highlight Official Government Holidays</label>
+              <span class="item-desc">Show official public holidays in crimson red on the monthly calendar grid.</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="setting-highlight-holidays">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="card-divider"></div>
+
+          <div class="card-item">
+            <div class="card-item-text">
+              <label for="setting-grid-tithi" class="item-title">Show Lunar Tithi in Grid Cells</label>
+              <span class="item-desc">Display the daily astronomical Tithi (एकादशी, पूर्णिमा, औंशी, etc.) inside every date cell.</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="setting-grid-tithi">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="card-divider"></div>
+
+          <div class="card-item">
+            <div class="card-item-text">
+              <label for="setting-highlights-ribbon" class="item-title">Monthly Highlights Ribbon</label>
+              <span class="item-desc">Show the quick-access chips strip at the bottom of the calendar summarizing all holidays in the active month.</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="setting-highlights-ribbon">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           4. ABOUT PATRO
+           =================================================================== -->
+      <section id="pane-about" class="content-pane" hidden>
+        <header class="pane-header">
+          <h1 class="pane-title">About Mero Desktop Patro</h1>
+          <p class="pane-subtitle">Application philosophy, technical architecture, and open-source acknowledgments.</p>
+        </header>
+
+        <div class="card">
+          <div class="about-hero">
+            <img class="about-app-logo" src="assets/app-logo.png" alt="Mero Desktop Patro Logo">
+            <div>
+              <h2 class="about-title">Mero Desktop Patro</h2>
+              <span class="about-release-tag">Official Release 1.0.0</span>
+            </div>
+          </div>
+
+          <p class="prose">
+            <strong>Mero Desktop Patro</strong> is a clean, distraction-free desktop calendar utility created for Microsoft Windows. It provides direct, instantaneous access to Bikram Sambat (वि.सं.) dates, public holidays, cultural festivals, and astronomical lunar Tithis without requiring a web browser or bloated software.
+          </p>
+
+          <p class="prose">
+            Designed with an emphasis on minimalism, legibility, and modern desktop ergonomics, Mero Desktop Patro stays quietly in your system tray and displays the date via a lightweight floating desktop widget that respects your screen space and daily workflow.
+          </p>
+
+          <div class="spec-grid">
+            <div class="spec-cell">
+              <span class="spec-label">Product Name</span>
+              <span class="spec-val">Mero Desktop Patro</span>
+            </div>
+            <div class="spec-cell">
+              <span class="spec-label">Version</span>
+              <span class="spec-val">1.0.0 (x64)</span>
+            </div>
+            <div class="spec-cell">
+              <span class="spec-label">Target Platform</span>
+              <span class="spec-val">Windows 10 / Windows 11</span>
+            </div>
+            <div class="spec-cell">
+              <span class="spec-label">Calendar Coverage</span>
+              <span class="spec-val">BS 2000 – 2090 (90 Years)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header-simple">
+            <h2 class="subcard-title">Credits & Open-Source Acknowledgments</h2>
+            <p class="item-desc">Mero Desktop Patro stands on the shoulders of the open-source community.</p>
+          </div>
+
+          <div class="info-table">
+            <div class="info-table-row">
+              <div class="info-table-col">
+                <strong>Noto Sans Devanagari UI</strong>
+                <span class="subtext">Google Fonts • SIL Open Font License 1.1</span>
+              </div>
+              <span class="tag-license">OFL 1.1</span>
+            </div>
+            <div class="info-table-row">
+              <div class="info-table-col">
+                <strong>Bikram Sambat Calendar Dataset</strong>
+                <span class="subtext">Verified Nepalese astronomical date conversion data</span>
+              </div>
+              <span class="tag-license">MIT License</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           5. MEET THE DEVELOPER
+           =================================================================== -->
+      <section id="pane-developer" class="content-pane" hidden>
+        <header class="pane-header">
+          <h1 class="pane-title">Meet the Developer</h1>
+          <p class="pane-subtitle">The individual behind the design and engineering of Mero Desktop Patro.</p>
+        </header>
+
+        <div class="card">
+          <div class="developer-profile-box">
+            <img class="developer-avatar" src="assets/developer.jpg" alt="Rabin Thapa">
+            <div class="developer-meta">
+              <h2 class="developer-name">Rabin Thapa</h2>
+              <span class="developer-title">Digital Professional & Independent Software Developer</span>
+              <p class="developer-bio">
+                Rabin Thapa is an independent digital creator focused on building practical, elegant software solutions, SEO architecture, and refined digital experiences. Mero Desktop Patro was conceived and crafted to provide fellow Nepalese professionals, students, and global diaspora users with a reliable, beautiful, and distraction-free desktop calendar for daily computer use.
+              </p>
+              <div class="developer-actions">
+                <button id="btn-open-portfolio" class="btn-primary" type="button">
+                  Visit Official Portfolio (portfolio.rabinthapa9.com.np) ↗
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           6. PRIVACY POLICY
+           =================================================================== -->
+      <section id="pane-privacy" class="content-pane" hidden>
+        <header class="pane-header">
+          <h1 class="pane-title">Privacy Policy</h1>
+          <p class="pane-subtitle">Official Privacy Statement • Effective as of Version 1.0.0 (October 2026)</p>
+        </header>
+
+        <div class="card legal-prose">
+          <h3>1. Privacy by Architecture</h3>
+          <p>
+            Mero Desktop Patro is engineered from the ground up on a <strong>privacy-first, offline-first philosophy</strong>. We believe calendar utilities should respect your privacy unconditionally. The application does not collect, track, transmit, or monetize any personal information, usage metrics, or browsing habits.
+          </p>
+
+          <h3>2. Zero Telemetry & Zero Data Collection</h3>
+          <p>
+            The software operates 100% locally on your computer. When you open the widget, check dates, or navigate months, no network requests are dispatched to any remote server. There are no tracking scripts, analytics SDKs, advertising beacons, or third-party monitoring tools embedded in the binary.
+          </p>
+
+          <h3>3. Local Preferences & Storage</h3>
+          <p>
+            To deliver a consistent user experience across restarts, Mero Desktop Patro saves only non-identifying operational preferences in your local user app directory (<code>%APPDATA%/...</code>):
+          </p>
+          <ul>
+            <li>Your desktop widget screen coordinates (X, Y) so the widget reopens where you placed it.</li>
+            <li>Your UI preferences (e.g. chosen size preset, surface theme, autostart toggle).</li>
+          </ul>
+          <p>These configuration files reside exclusively on your machine and are never transmitted externally.</p>
+
+          <h3>4. External Links</h3>
+          <p>
+            The application contains links to the developer's official portfolio website (<code>portfolio.rabinthapa9.com.np</code>). These external links only open when you explicitly click on them. When opened, your default web browser handles the connection according to standard internet protocols.
+          </p>
+
+          <h3>5. Operating System Integrations</h3>
+          <p>
+            If you enable the optional <em>"Start with Windows"</em> feature, the application registers an entry in your user account's standard Windows Startup registry key. No administrative elevation or root modifications are performed.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           7. TERMS OF USE
+           =================================================================== -->
+      <section id="pane-terms" class="content-pane" hidden>
+        <header class="pane-header">
+          <h1 class="pane-title">Terms of Use</h1>
+          <p class="pane-subtitle">Official Terms of Service • Effective as of Version 1.0.0 (October 2026)</p>
+        </header>
+
+        <div class="card legal-prose">
+          <h3>1. Acceptance of Terms</h3>
+          <p>
+            By installing or running <strong>Mero Desktop Patro</strong>, you agree to these Terms of Use. If you do not agree to these terms, you may freely remove the application at any time using the standard Windows Add/Remove Programs utility.
+          </p>
+
+          <h3>2. License Grant</h3>
+          <p>
+            Rabin Thapa grants you a personal, non-exclusive, revocable, royalty-free license to install, execute, and use Mero Desktop Patro on Windows computers for personal, academic, professional, and commercial productivity purposes.
+          </p>
+
+          <h3>3. Permitted Use & Restrictions</h3>
+          <p>
+            You are encouraged to use and share Mero Desktop Patro freely with friends and colleagues. You agree not to:
+          </p>
+          <ul>
+            <li>Redistribute modified binaries that bundle spyware, adware, or malicious software.</li>
+            <li>Misrepresent the authorship, branding, or origin of Mero Desktop Patro.</li>
+            <li>Use the software in any manner that violates applicable local or international laws.</li>
+          </ul>
+
+          <h3>4. Intellectual Property</h3>
+          <p>
+            All original application code, visual presentation, interface layouts, and branding of Mero Desktop Patro are the intellectual property of Rabin Thapa. Embedded third-party assets (such as Google Noto Sans Devanagari UI and calendar conversion algorithms) retain their respective open-source licenses (SIL OFL 1.1 and MIT).
+          </p>
+
+          <h3>5. Disclaimer of Warranties</h3>
+          <p>
+            Mero Desktop Patro is provided on an "as is" and "as available" basis without warranties of any kind, whether express or implied.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           8. DISCLAIMER & DATA SOURCE
+           =================================================================== -->
+      <section id="pane-disclaimer" class="content-pane" hidden>
+        <header class="pane-header">
+          <h1 class="pane-title">Disclaimer & Calendar Data Source</h1>
+          <p class="pane-subtitle">Important Information Regarding Calendar Calculations and Official Observances</p>
+        </header>
+
+        <div class="card legal-prose">
+          <h3>1. Independent Development Declaration</h3>
+          <p>
+            <strong>Mero Desktop Patro</strong> is an independent software project developed by Rabin Thapa. It is <strong>NOT</strong> an official publication, application, or service of the Government of Nepal, the Nepal Panchanga Nirnayak Samiti, or any state-affiliated ministry.
+          </p>
+
+          <h3>2. Calendar Calculation & Conversion Accuracy</h3>
+          <p>
+            The Bikram Sambat (BS) calendar is a lunisolar system. Unlike fixed algorithmic calendars, official month lengths (varying between 29 and 32 days) and public holiday declarations are finalized by Nepalese authorities periodically.
+          </p>
+          <p>
+            While Mero Desktop Patro incorporates verified astronomical datasets and passes rigorous automated verification testing across BS 2000 through BS 2090, users must verify dates with the official Nepal Rajpatra (Nepal Gazette) published by the Ministry of Home Affairs for critical banking deadlines, legal transactions, court hearings, and government paperwork.
+          </p>
+
+          <h3>3. Religious Festivals & Lunar Tithis</h3>
+          <p>
+            Astronomical Tithis (such as Ekadashi, Purnima, and Aaunshi) are calculated based on standard Nepalese planetary algorithms. Specific religious observances, localized vratas, or muhurats may vary slightly based on local sunrise times (Surya Udaya) or regional customs. Consult your family Jyotish or local Panchanga for ritualistic timings.
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- FLOATING SAVE STATUS TOAST -->
+  <div id="save-toast" class="save-toast" aria-live="polite">Preferences saved</div>
+
+</body>
+</html>

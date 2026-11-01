@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>Mero Desktop Patro</title>
+  <link rel="icon" type="image/png" href="assets/app-logo.png">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="patro-date.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+
+<body class="widget-page">
+
+  <main id="widget" class="widget" aria-label="Mero Desktop Patro">
+
+    <div id="widget-surface" class="widget-surface">
+
+      <button
+        id="open-calendar"
+        class="date-area"
+        type="button"
+        title="Click to open calendar. Drag to move. Right-click for options."
+        aria-label="Open Nepali calendar"
+      >
+        <div class="widget-date-content">
+          <div class="widget-primary-row">
+            <span id="nepali-date" class="nepali-date">नेपाली मिति</span>
+          </div>
+
+          <div class="widget-subrow">
+            <span id="english-date" class="english-date">Loading...</span>
+            <span id="widget-tithi" class="widget-tithi-pill" hidden></span>
+          </div>
+        </div>
+      </button>
+
+      <div class="widget-controls">
+        <button
+          id="open-settings"
+          class="widget-action-btn"
+          type="button"
+          title="Settings (सेटिङ)"
+          aria-label="Open Settings"
+        >
+          <svg viewBox="0 0 24 24" width="13.5" height="13.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- CORNER DRAG-TO-RESIZE GRIP -->
+    <div id="widget-resize-grip" class="widget-resize-grip" title="Drag to resize widget" aria-hidden="true">
+      <svg width="6" height="6" viewBox="0 0 6 6" fill="none">
+        <path d="M5 1L1 5M5 3L3 5M5 5H5.01" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+  </main>
+
+</body>
+</html>
