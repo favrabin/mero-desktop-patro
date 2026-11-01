@@ -16,6 +16,20 @@ A lightweight desktop calendar for viewing Nepali Bikram Sambat and English date
 - Settings and application information
 - Windows installer
 
+## Screenshots
+
+### Desktop Widget
+![Mero Desktop Patro desktop widget](docs/screenshots/popup.png)
+
+### Desktop Widget
+![Mero Desktop Patro desktop widget](docs/screenshots/popup_2.png)
+
+### Settings
+![Mero Desktop Patro settings](docs/screenshots/settings.png)
+
+### Full Calendar
+![Mero Desktop Patro full calendar](docs/screenshots/calendar.png)
+
 ## Download
 
 **[Download Mero Desktop Patro v1.0.0](https://github.com/favrabin/mero-desktop-patro/releases/tag/v1.0.0)**
